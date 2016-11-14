@@ -1,0 +1,6 @@
+
+I'd like to make sure there is accessible items so people can do their own taxes. 
+
+Various pdf forms, instructions and publications can be found at https://www.irs.gov/forms-pubs. If you would like html format so you can paste into a spreadsheet editor, you can try those available at https://www.irs.gov/instructions/ and https://www.irs.gov/publications/. But these are only available for current year, so I've looked for a way to get previous year tax-related tables into a spreadsheet. A tool named =pdftotext= with the =-layout= option will successfully convert the tables from pdfs, which can without too much effort be added to spreadsheets. 
+
+In this repo, I will try to provide links, table outputs and steps taken that one can reproduce. 
