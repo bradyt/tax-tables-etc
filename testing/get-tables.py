@@ -13,7 +13,6 @@ def write_rows_to_file(rows, outfile):
         for line in rows:
             writer.writerow(line)
 
-
 def main():
     xml_filename = 'i1040gi--2014.xml'
     outline, pages = split_tree(xml_filename)
@@ -21,7 +20,6 @@ def main():
     tax_table_pages = get_pages(pages, page_numbers)
     list_ = get_list(tax_table_pages)
     rows = get_rows(list_)
-    # return rows
     write_rows_to_file(rows, 'output.csv')
 
 def split_tree(xml_filename):
