@@ -10,12 +10,14 @@ def get_csv(csv_infile):
             rows.append(ints)
         return rows
 
-rows = get_csv('csvs/tax-table-2015.csv')
+rows = get_csv('csvs/tax-table-2016.csv')
 
 pairs = []
 
 for pair in list(zip(rows, rows[1:])):
     pairs.append(pair)
+
+# add an assertion for start, end = $0, $1,000,000
 
 def pair_assertions(pair):
     curr, next = pair

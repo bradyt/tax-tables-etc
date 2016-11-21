@@ -18,6 +18,13 @@ def xml_to_csv(xml_infile, csv_outfile):
     rows = get_rows(list_)
     write_rows_to_file(rows, csv_outfile)
 
+def xml_2016_to_csv(xml_infile, csv_outfile):
+    all_pages = get_all_pages(xml_infile)
+    tax_table_pages = get_tax_table_pages(all_pages)
+    list_ = get_2016_list(tax_table_pages)
+    rows = get_rows(list_)
+    write_rows_to_file(rows, csv_outfile)
+
 def get_all_pages(xml_filename):
     tree = ET.parse(xml_filename)
     root = tree.getroot()
@@ -40,6 +47,16 @@ def get_list(pages):
     for page in pages:
         for item in page:
             if item.get('font') in ['11', '12']:
+                string = ''.join(item.itertext())
+                string = re.sub(r'[^0-9^ ]', '', string)
+                list_ += map(int, string.split())
+    return list_
+
+def get_2016_list(pages):
+    list_ = []
+    for page in pages:
+        for item in page:
+            if item.get('font') in ['21', '22']:
                 string = ''.join(item.itertext())
                 string = re.sub(r'[^0-9^ ]', '', string)
                 list_ += map(int, string.split())
